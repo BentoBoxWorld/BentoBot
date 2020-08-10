@@ -1,0 +1,9 @@
+{
+  "name": "discord-default",
+  "version": "0.0.0",
+  "description": "DiscordDefault",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  }
+}
