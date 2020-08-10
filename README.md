@@ -1,2 +1,2 @@
-# DiscordDefault
+# BentoBot
 
