@@ -1,22 +1,23 @@
 const Embeds = require('../embed.js');
 const { prefix } = require('../config.json');
+const discord = require('discord.js');
 
 module.exports = {
     name: 'help',
     description: 'List all of my commands or info about a specific command.',
+    permission: 'EVERYONE',
     aliases: ['commands'],
     usage: '[command name]',
     cooldown: 5,
-    execute(message, args, discord) {
+    execute(message, args) {
         const data = [];
         const { commands } = message.client;
         if (!args.length) {
-            //you'll need refrence to this somehow, like const {MessageEmbed} = require("discord.js")    
             const embed = new discord.MessageEmbed()
             embed.setTitle("Here's a list of all my commands:");
-            embed.setDescription(commands.map(cmd => prefix.concat(capitalize(cmd.name))).join("\n"));
+            embed.setDescription(commands.map(cmd => "**".concat(prefix.concat(cmd.name.concat("**\n" + cmd.description)))));
             embed.addFields(
-                { name: `You can send \`${prefix}help [command name]\` to get info on a specific command!`, value: '\u200b' }
+                { name: `You can send \`${prefix}help [command name]\` to get info on a specific command!`, value: 'Contact <@547890787682222081> for support' }
             )
             const CreatedEmbed = Embeds.EmbedGen(embed);
             return message.channel.send({ embed: CreatedEmbed })
@@ -34,12 +35,12 @@ module.exports = {
         }
 
         const embed = new discord.MessageEmbed()
-        embed.setTitle("Command Info:");
+        embed.setTitle("**Command:**");
         embed.setDescription(prefix.concat(command.name));
         embed.addFields(
-            { name: `**Name:**`, value: `${ command.name }` },
-            { name: `**Description:**`, value: `${ command.description }` },
-            { name: `**Cooldown:**`, value: `${ command.cooldown || 3 }` }
+            { name: `**Description:**`, value: `${command.description}` },
+            { name: `**Permission:**`, value: `${command.permission.replace('_', ' ')}` },
+            { name: `**For Support**`, value: `Contact <@547890787682222081>` }
         )
         const CreatedEmbed = Embeds.EmbedGen(embed);
 

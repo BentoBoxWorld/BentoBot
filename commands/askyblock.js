@@ -2,6 +2,7 @@ const Embeds = require('../embed.js');
 module.exports = {
 	name: 'askyblock',
 	description: 'ASkyBlock is unsupported',
+	permission: 'EVERYONE',
 	cooldown: 5,
 	execute(message) {
 		const CreatedEmbed = Embeds.EmbedGen({

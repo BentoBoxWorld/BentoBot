@@ -2,6 +2,7 @@ const Embeds = require('../embed.js');
 module.exports = {
 	name: 'docs',
 	description: 'The BentoBox Docs',
+	permission: 'EVERYONE',
 	cooldown: 5,
 	execute(message) {
 		const CreatedEmbed = Embeds.EmbedGen({

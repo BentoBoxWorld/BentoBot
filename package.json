@@ -1,9 +1,12 @@
 {
-  "name": "discord-default",
-  "version": "0.0.0",
-  "description": "DiscordDefault",
-  "main": "app.js",
+  "name": "bentobot",
+  "version": "1.1.0",
+  "description": "BentoBoxWorld's Discord Bot",
+  "main": "index.js",
   "author": {
     "name": ""
+  },
+  "dependencies": {
+    "discord.js": "^12.2.0"
   }
 }
