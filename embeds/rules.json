@@ -1,0 +1,27 @@
+{
+  "title": "Rules:",
+  "description": "The BentoBoxWorld Rules",
+  "fields": [
+    {
+      "name": "#1",
+      "value": "Be nice. There's no need for insults."
+    },
+    {
+      "name": "#2",
+      "value": "Don't post ads."
+    },
+    {
+      "name": "#3",
+      "value": "Read the FAQ section on the docs before asking your question. You might as well find the answer you're looking for! https://docs.bentobox.world/."
+    },
+    {
+      "name": "#4",
+      "value": "Don't start tagging random people. Your messages will be answered as soon as possible, just wait."
+    },
+    {
+      "name": "#5",
+      "value": "Don't ask for a helper rank. It'll eventually be given to you if you're active on the #support-en or #support-fr channels."
+    }
+
+  ]
+}

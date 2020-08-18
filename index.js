@@ -8,7 +8,6 @@ const activities_list = [
 	"CaveBlock",
 	"SkyGrid"
 ];
-
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
@@ -34,12 +33,20 @@ client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
-	const command = args.shift().toLowerCase();
-	if (!client.commands.has(command)) return;
-	if (command.guildOnly && message.channel.type === 'null') {
+	const commandName = args.shift().toLowerCase();
+
+	const command = client.commands.get(commandName)
+		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+
+	if (!command) return;
+
+	if (command.guildOnly && message.channel.type === 'dm') {
 		return message.reply('I can\'t execute that command inside DMs!');
 	}
-
+	if (!message.channel.type === 'dm' && command.permission !== 'EVERYONE' && !message.member.hasPermission(command.permission)) {
+		let reply = `You don't have permission for that, ${message.author}!`;
+		return message.channel.send(reply);
+	}
 	if (command.args && !args.length) {
 		let reply = `You didn't provide any arguments, ${message.author}!`;
 
@@ -67,12 +74,14 @@ client.on('message', message => {
 		}
 	}
 
+	timestamps.set(message.author.id, now);
+	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+
 	try {
-		client.commands.get(command).execute(message, args, Discord);
+		command.execute(message, args, client);
 	} catch (error) {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
 	}
 });
-
 client.login(token);

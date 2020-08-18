@@ -2,6 +2,7 @@ const Embeds = require('../embed.js');
 module.exports = {
 	name: 'embed',
 	description: 'embed a message',
+	permission: 'MANAGE_CHANNELS',
 	execute(message, args) {
 		const sayMessage = args.join(" ");
 		message.delete();

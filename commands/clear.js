@@ -3,6 +3,7 @@ module.exports = {
 	name: 'clear',
 	description: 'clear up to 99 messages.',
 	guildOnly: true,
+	permission: 'MANAGE_CHANNELS',
 	execute(message, args) {
 		const amount = parseInt(args[0]) + 1;
 

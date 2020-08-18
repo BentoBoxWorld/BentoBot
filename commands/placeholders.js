@@ -2,6 +2,7 @@ const Embeds = require('../embed.js');
 module.exports = {
 	name: 'placeholders',
 	description: 'Bentobox Placeholders',
+	permission: 'EVERYONE',
 	cooldown: 5,
 	execute(message) {
 		const CreatedEmbed = Embeds.EmbedGen({

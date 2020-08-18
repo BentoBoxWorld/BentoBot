@@ -1,0 +1,9 @@
+{
+  "name": "bento-bot",
+  "version": "0.0.0",
+  "description": "BentoBot",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  }
+}
