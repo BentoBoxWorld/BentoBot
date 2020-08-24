@@ -4,20 +4,20 @@ const discord = require('discord.js');
 
 module.exports = {
     name: 'help',
-    description: 'List all of my commands or info about a specific command.',
+    description: 'lists available commands or provides info about the specified command',
     permission: 'EVERYONE',
     aliases: ['commands'],
     usage: '[command name]',
-    cooldown: 5,
+    cooldown: 3,
     execute(message, args) {
         const data = [];
         const { commands } = message.client;
         if (!args.length) {
             const embed = new discord.MessageEmbed()
-            embed.setTitle("Here's a list of all my commands:");
-            embed.setDescription(commands.map(cmd => "**".concat(prefix.concat(cmd.name.concat("**\n" + cmd.description)))));
+            embed.setTitle("List of available commands");
+            embed.setDescription(commands.map(cmd => "**".concat(prefix.concat(cmd.name.concat("** • " + cmd.description)))));
             embed.addFields(
-                { name: `You can send \`${prefix}help [command name]\` to get info on a specific command!`, value: 'Contact <@547890787682222081> for support' }
+                { name: `Type \`${prefix}help [command name]\` to get info about a specific command!`, value: 'Contact <@547890787682222081> for support' }
             )
             const CreatedEmbed = Embeds.EmbedGen(embed);
             return message.channel.send({ embed: CreatedEmbed })
@@ -31,16 +31,15 @@ module.exports = {
         const command = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
 
         if (!command) {
-            return message.reply('that\'s not a valid command!');
+            return message.reply("this command does not exist.");
         }
 
         const embed = new discord.MessageEmbed()
-        embed.setTitle("**Command:**");
-        embed.setDescription(prefix.concat(command.name));
+        embed.setTitle(prefix.concat(command.name));
         embed.addFields(
-            { name: `**Description:**`, value: `${command.description}` },
-            { name: `**Permission:**`, value: `${command.permission.replace('_', ' ')}` },
-            { name: `**For Support**`, value: `Contact <@547890787682222081>` }
+            { name: `Description`, value: `${command.description}` },
+            { name: `Permission`, value: `${command.permission.replace('_', ' ')}` },
+            { name: `For support`, value: `Contact <@547890787682222081>` }
         )
         const CreatedEmbed = Embeds.EmbedGen(embed);
 
