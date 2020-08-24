@@ -10,5 +10,5 @@ module.exports = {
 				"description": "Our documentation is available at [docs.bentobox.world](https://docs.bentobox.world)."
 		});
 		message.channel.send({ embed: CreatedEmbed })
-	},
+	}
 };

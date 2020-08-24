@@ -17,7 +17,7 @@ module.exports = {
             embed.setTitle("List of available commands");
             embed.setDescription(commands.map(cmd => "**".concat(prefix.concat(cmd.name.concat("** • " + cmd.description)))));
             embed.addFields(
-                { name: `Type \`${prefix}help [command name]\` to get info about a specific command!`, value: 'Contact <@547890787682222081> for support' }
+                { name: `Type \`${prefix}help [command name]\` to get info about a specific command.`, value: "Thanks for using BentoBox!"}
             )
             const CreatedEmbed = Embeds.EmbedGen(embed);
             return message.channel.send({ embed: CreatedEmbed })
@@ -38,8 +38,7 @@ module.exports = {
         embed.setTitle(prefix.concat(command.name));
         embed.addFields(
             { name: `Description`, value: `${command.description}` },
-            { name: `Permission`, value: `${command.permission.replace('_', ' ')}` },
-            { name: `For support`, value: `Contact <@547890787682222081>` }
+            { name: `Permission`, value: `${command.permission.replace('_', ' ')}` }
         )
         const CreatedEmbed = Embeds.EmbedGen(embed);
 
