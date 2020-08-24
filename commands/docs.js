@@ -6,8 +6,8 @@ module.exports = {
 	cooldown: 5,
 	execute(message) {
 		const CreatedEmbed = Embeds.EmbedGen({
-				"title": "The Bentobox Docs:",
-				"description": "https://docs.bentobox.world"
+				"title": "BentoBoxWorld Documentation",
+				"description": "Our documentation is available at [docs.bentobox.world](https://docs.bentobox.world)."
 		});
 		message.channel.send({ embed: CreatedEmbed })
 	},
