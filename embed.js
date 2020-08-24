@@ -7,4 +7,4 @@ exports.EmbedGen = function (recembed) {
     };
     sentembed.timestamp = new Date()
     return sentembed;
-    };
+};
