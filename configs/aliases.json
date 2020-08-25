@@ -1,6 +1,74 @@
 {
+  "bentobox": "BentoBox",
   "bbox": "BentoBox",
-  "bbx": "BentoBox",
+
+  "acidisland": "AcidIsland",
+  "acid": "AcidIsland",
+
+  "aoneblock": "AOneBlock",
+  "oneblock": "AOneBlock",
+  "aob": "AOneBlock",
+  "ob": "AOneBlock",
+
+  "caveblock": "CaveBlock",
+  "cave": "CaveBlock",
+  "cb": "CaveBlock",
+
+  "bskyblock": "BSkyBlock",
+  "bsb": "BSkyBlock",
+
+  "skygrid": "SkyGrid",
+  "sg": "SkyGrid",
+
+  "biomes": "Biomes",
+
+  "border": "Border",
+
+  "cauldronwitchery": "CauldronWitchery",
+  "cw": "CauldronWitchery",
+
+  "challenges": "Challenges",
+  "chall": "Challenges",
+
+  "chat": "Chat",
+
+  "controlpanel": "ControlPanel",
+  "cp": "ControlPanel",
+
+  "dimensionaltrees": "DimensionalTrees",
+  "dt": "DimensionalTrees",
+
+  "extramobs": "ExtraMobs",
+  "em": "ExtraMobs",
+
+  "greenhouses": "Greenhouses",
+  "gh": "Greenhouses",
+
+  "islandfly": "IslandFly",
+  "fly": "IslandFly",
+
+  "invswitcher": "InvSwitcher",
+  "invs": "InvSwitcher",
+
+  "level": "Level",
   "lvl": "Level",
-  "mcg": "MagicCobblestoneGenerator"
+
+  "likes": "Likes",
+
+  "limits": "Limits",
+
+  "magiccobblestonegenerator": "MagicCobblestoneGenerator",
+  "mcg": "MagicCobblestoneGenerator",
+
+  "twerkingfortrees": "TwerkingForTrees",
+  "twerk": "TwerkingForTrees",
+
+  "upgrades": "Upgrades",
+
+  "visit": "Visit",
+
+  "voidportals": "VoidPortals",
+  "vp": "VoidPortals",
+
+  "warps": "Warps"
 }
