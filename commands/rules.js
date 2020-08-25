@@ -1,7 +1,7 @@
 const Embeds = require('../embed.js');
 module.exports = {
 	name: 'rules',
-	description: 'The Bentobox Rules',
+	description: 'displays the rules',
 	permission: 'EVERYONE',
 	cooldown: 5,
 	execute(message) {
