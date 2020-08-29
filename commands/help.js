@@ -34,11 +34,14 @@ module.exports = {
             return message.reply("this command does not exist.");
         }
 
+        const all_aliases = prefix + command.name + ", " + prefix + command.aliases.join(", " + prefix);
+
         const embed = new discord.MessageEmbed()
         embed.setTitle(prefix.concat(command.name));
         embed.addFields(
-            { name: `Description`, value: `${command.description}` },
-            { name: `Permission`, value: `${command.permission.replace('_', ' ')}` }
+            { name: 'Description', value: `${command.description}` },
+            { name: 'Aliases', value: `${all_aliases}` },
+            { name: 'Permission', value: `${command.permission.replace('_', ' ')}` }
         )
         const CreatedEmbed = Embeds.EmbedGen(embed);
 
