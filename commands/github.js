@@ -3,7 +3,7 @@ module.exports = {
 	name: 'github',
 	description: 'Bentobox Github',
 	permission: 'EVERYONE',
-	aliases: ['gh'],
+	aliases: ['gh', 'repository', 'repo'],
 	cooldown: 5,
 	execute(message) {
 		const CreatedEmbed = Embeds.EmbedGen({
