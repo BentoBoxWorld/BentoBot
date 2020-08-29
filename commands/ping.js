@@ -6,8 +6,8 @@ module.exports = {
 	cooldown: 5,
 	execute(message) {
 		const CreatedEmbed = Embeds.EmbedGen({
-			"title": "Rules on Tagging:",
-			"description": "Don't start tagging random people. Your messages will be answered as soon as possible, just wait."
+			"title": "Avoid tagging developers",
+			"description": "Please refrain from tagging online developers or contributors. Your messages will be answered as soon as possible, just wait."
 		});
 		message.channel.send({ embed: CreatedEmbed })
 	},
