@@ -43,10 +43,10 @@ client.on('message', message => {
 	if (command.guildOnly && message.channel.type === 'dm') {
 		return message.reply('I can\'t execute that command inside DMs!');
 	}
-	if (!message.channel.type === 'dm' && command.permission !== 'EVERYONE' && !message.member.hasPermission(command.permission)) {
-		let reply = `You don't have permission for that, ${message.author}!`;
-		return message.channel.send(reply);
-	}
+	if (!message.channel.type === 'dm' && command.permission !== 'EVERYONE' && !message.member.permission.has(command.permission)) {
+    let reply = `You don't have permission for that, ${message.author}!`;
+    return message.channel.send(reply);
+  }
 	if (command.args && !args.length) {
 		let reply = `You didn't provide any arguments, ${message.author}!`;
 
