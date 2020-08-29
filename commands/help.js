@@ -7,7 +7,7 @@ module.exports = {
     description: 'lists available commands or provides info about the specified command',
     permission: 'EVERYONE',
     aliases: ['commands'],
-    usage: '[command name]',
+    usage: '[command]',
     cooldown: 3,
     execute(message, args) {
         const data = [];
@@ -15,7 +15,7 @@ module.exports = {
         if (!args.length) {
             const embed = new discord.MessageEmbed()
             embed.setTitle("List of available commands");
-            embed.setDescription(commands.map(cmd => "**".concat(prefix.concat(cmd.name.concat("** • " + cmd.description)))));
+            embed.setDescription(commands.map(cmd => format_command(cmd)));
             embed.addFields(
                 { name: `Type \`${prefix}help [command name]\` to get info about a specific command.`, value: "Thanks for using BentoBox!"}
             )
@@ -49,7 +49,14 @@ module.exports = {
     }
 };
 
-const capitalize = (s) => {
-    if (typeof s !== 'string') return ''
-    return s.charAt(0).toUpperCase() + s.slice(1)
+const format_command = (cmd) => {
+  return `**${prefix}${cmd.name}${format_command_usage(cmd)}** • ${cmd.description}`
+}
+
+const format_command_usage = (cmd) => {
+  if (typeof cmd.usage !== 'undefined') {
+    return ' ' + cmd.usage;
+  } else {
+    return '';
+  }
 }
