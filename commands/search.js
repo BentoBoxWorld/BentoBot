@@ -3,6 +3,7 @@ const { prefix } = require('../config.json');
 var request = require('request');
 const Discord = require('discord.js');
 module.exports = {
+	args: true,
 	name: 'search',
 	description: 'search the documentation.',
 	permission: 'EVERYONE',
