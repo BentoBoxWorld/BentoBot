@@ -70,5 +70,10 @@
   "voidportals": "VoidPortals",
   "vp": "VoidPortals",
 
-  "warps": "Warps"
+  "warps": "Warps",
+  
+  "download": "Downloads",
+  
+  "api": "JavaDocs",
+  "javadoc": "JavaDocs"
 }
