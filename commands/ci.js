@@ -14,6 +14,9 @@ module.exports = {
 
     if (args.length == 1) {
       let project = aliases.find_project_for_alias(args[0]);
+      if (!project) {
+	      let project = args[0];
+      };
       embed.addFields(
 			  { name: `${project} development builds`, value: `:arrow_forward: [Click here for ${project}'s development builds](https://ci.codemc.io/job/BentoBoxWorld/job/${project}). :arrow_backward:` }
 		  );
