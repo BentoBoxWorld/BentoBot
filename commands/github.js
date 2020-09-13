@@ -12,11 +12,14 @@ module.exports = {
 	execute(message, args) {
 		if (args.length == 1) {
       let project = aliases.find_project_for_alias(args[0]);
+      if (!project) {
+	      let project = args[0];
+      };
 			const embed = new discord.MessageEmbed()
 			embed.setTitle(`${project} GitHub repository`);
 			embed.setDescription(`[Click here to go to the ${project} repository](https://github.com/BentoBoxWorld/${project}).`);
 			embed.addFields(
-				{ name: "Additional links", value: "[Issue tracker](https://github.com/BentoBoxWorld/${project}/issues) • [Releases](https://github.com/BentoBoxWorld/${project}/releases) • [Contributors](https://github.com/BentoBoxWorld/${project}/graphs/contributors)" }
+				{ name: `Additional links`, value: `[Issue tracker](https://github.com/BentoBoxWorld/${project}/issues) • [Releases](https://github.com/BentoBoxWorld/${project}/releases) • [Contributors](https://github.com/BentoBoxWorld/${project}/graphs/contributors)` }
 			);
 			const CreatedEmbed = Embeds.EmbedGen(embed);
 		  message.channel.send({ embed: CreatedEmbed })
