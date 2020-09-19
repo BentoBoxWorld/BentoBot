@@ -9,5 +9,7 @@
   "dependencies": {
     "discord.js": "^12.2.0",
     "request": "^2.88.2"
-  }
+  },
+  "license": "MIT",
+  "repository": "github:BentoBoxWorld/BentoBot"
 }
