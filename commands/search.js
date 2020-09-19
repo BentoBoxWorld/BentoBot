@@ -3,11 +3,24 @@ const { prefix } = require('../config.json');
 var request = require('request');
 const Discord = require('discord.js');
 
-function formatLink(title, domain, path, id) {
+function formatLink(domain, path, id) {
 	if (id === "") {
-		return `[${title}](${domain}${path})`;
+		return `[Read more](${domain}${path})`;
 	} else {
-		return `[${title}](${domain}${path}#${id})`;
+		return `[Read more](${domain}${path}#${id})`;
+	}
+}
+
+// Gets the result's content and
+//		if there are sentences, only show the first one
+//		if there are no sentences... i don't know what to do yet
+function filterContent(content) {
+	const analyzedSubstring = content.substring(0, 128);
+	if (analyzedSubstring.includes('.')) {
+		const indexOfDot = analyzedSubstring.indexOf('.');
+		return analyzedSubstring.substring(0, indexOfDot-1) + ".";
+	} else {
+		return analyzedSubstring + "...";
 	}
 }
 
@@ -41,7 +54,7 @@ module.exports = {
 				searchEmbed.setDescription('These results were gathered from [https://docs.bentobox.world/](docs.bentobox.world)')
 				for (i = 0; i < importedJSON.count && i < 6 ; i++) {
 					var res = importedJSON.results[i];
-					searchEmbed.addField(res.title, formatLink(res.title, res.domain, res.path, res.blocks[0].id) + '\n' + res.blocks[0].content.substring(0,120) + '...');
+					searchEmbed.addField(res.title, filterContent(res.blocks[0].content) + '\n' + formatLink(res.domain, res.path, res.blocks[0].id));
 				}
 				if (importedJSON.count === 0) {
 					searchEmbed.addField("No results found", 'Sorry, there were no results matching "' + result + '"');
