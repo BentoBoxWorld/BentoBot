@@ -23,6 +23,11 @@
   "biomes": "Biomes",
 
   "border": "Border",
+  "worldborder": "Border",
+  "islandborder": "Border",
+  "ib": "Border",
+  "wb": "Border",
+  "b": "Border",
 
   "cauldronwitchery": "CauldronWitchery",
   "cw": "CauldronWitchery",
