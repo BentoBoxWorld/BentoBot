@@ -4,15 +4,14 @@ const discord = require('discord.js');
 
 module.exports = {
 	name: 'blueprint',
-	description: 'provides info on Bentobox Blueprints',
+	description: 'provides info about Blueprints',
 	permission: 'EVERYONE',
 	cooldown: 8,
-	execute() {
+	execute(message) {
     const embed = new discord.MessageEmbed();
-    embed.setTitle("BentoBox Blueprints");
-		embed.setDescription("You can find the full blueprint docs at [docs.bentobox.world/en/latest/BentoBox/Blueprints/](https://docs.bentobox.world/en/latest/BentoBox/Blueprints/).\n:**Info:**\n Blueprints are like WorldEdit schematics but are not compatible. Blueprints are optimized for BentoBox addons and do not require any other plugin or library to use.");
-    }
+    embed.setTitle("Blueprints");
+		embed.setDescription("**Info:**\nBlueprints are similar to WorldEdit schematics but are not compatible. They are an in-house format optimized for BentoBox addons and they do not require any other plugin or library.\n\nWant more details? Check out the [documentation](https://docs.bentobox.world/en/latest/BentoBox/Blueprints/).");
 		const CreatedEmbed = Embeds.EmbedGen(embed);
 		message.channel.send({ embed: CreatedEmbed });
-    }
+  }
 };
