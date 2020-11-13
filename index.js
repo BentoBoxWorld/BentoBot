@@ -8,6 +8,10 @@ const activities_list = [
 	"CaveBlock",
 	"SkyGrid"
 ];
+const mimeType = require('mime-types');
+var hastebin = require('hastebin')
+const contentTypes = ['application/json', 'text/plain', 'text/yaml'];
+const haste = 'https://paste.md-5.net';
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
@@ -31,7 +35,22 @@ client.once('ready', () => {
 
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
-
+	if (message.attachments) {
+    for (const attachment of message.attachments.values()) {
+      let contentType = mimeType.lookup(attachment.url);
+      if (!contentTypes.some(type => contentType === type)) continue;
+      
+      try {
+        let content = await axios.get(attachment.url);
+        let response = await axios.post(`${haste}/documents`, content.data, {
+          headers: {'Content-Type': contentType}
+        });
+      }
+        await message.channel.send(`Please use ${haste} to send files in the future. I have automatically uploaded \`${attachment.filename}\` for you: ${haste}/${response.data.key}`);
+      } catch (e) {
+        await message.channel.send(`Your file could not be automatically uploaded to hastebin. Please use ${haste} to share files.`)
+      }
+    }
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
