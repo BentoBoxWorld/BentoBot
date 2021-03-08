@@ -6,7 +6,8 @@ const activities_list = [
 	"AcidIsland",
 	"AOneBlock",
 	"CaveBlock",
-	"SkyGrid"
+	"SkyGrid",
+	"Boxed"
 ];
 const mimeType = require('mime-types');
 const axios = require('axios');
