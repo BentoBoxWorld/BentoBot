@@ -45,9 +45,9 @@ client.on('message', async message => {
         let response = await axios.post(`${haste}/documents`, content.data, {
           headers: {'Content-Type': contentType}
         });
-        await message.channel.send(`Please use ${haste} to send files in the future. I have automatically uploaded your for you: ${haste}/${response.data.key}`);
+        await message.channel.send(`Here Is Your Uploaded Paste! ${haste}/${response.data.key}`);
       } catch (e) {
-        await message.channel.send(`Your file could not be automatically uploaded to haste. Please use ${haste} to share files.`)
+        await message.channel.send(`Your file could not be automatically uploaded to haste, Sorry! Try use ${haste} to share files.`)
       }
 	}};
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
