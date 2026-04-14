@@ -17,6 +17,6 @@ module.exports = {
         Command works instantly, permission requires player to relog the server.
         The max available value is defined by distance-between-islands from [gamemode] config. However, that value cannot be increased without full reset of all islands.`
 		});
-		message.channel.send({ embed: CreatedEmbed })
+		message.channel.send({ embeds: [CreatedEmbed] })
 	},
 };

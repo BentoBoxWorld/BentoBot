@@ -9,6 +9,6 @@ module.exports = {
 			"title": "ASkyBlock",
 			"description": "ASkyBlock (1.8 - 1.12.2) is unsupported. Its source code can still be found on [GitHub](https://github.com/tastybento/askyblock)."
 		});
-		message.channel.send({ embed: CreatedEmbed })
+		message.channel.send({ embeds: [CreatedEmbed] })
 	},
 };

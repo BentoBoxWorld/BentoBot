@@ -10,6 +10,6 @@ module.exports = {
 			"title": "SpigotMC",
 			"description": "BentoBox is available on [SpigotMC](https://www.spigotmc.org/resources/bentobox-bskyblock-acidisland-skygrid-caveblock-aoneblock.73261/)."
 		});
-		message.channel.send({ embed: CreatedEmbed })
+		message.channel.send({ embeds: [CreatedEmbed] })
 	},
 };

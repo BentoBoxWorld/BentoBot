@@ -19,6 +19,6 @@ module.exports = {
       **CaveBlock**: /cbadmin • /cba
       **AOneBlock**: /oneblockadmin • /obadmin • /oba`
 		});
-		message.channel.send({ embed: CreatedEmbed })
+		message.channel.send({ embeds: [CreatedEmbed] })
 	},
 };

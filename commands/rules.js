@@ -9,6 +9,6 @@ module.exports = {
 			"title": "Rules",
 			"description": "Please Check <#739935590128156702>"
 		});
-		message.channel.send({ embed: CreatedEmbed })
+		message.channel.send({ embeds: [CreatedEmbed] })
 	},
 };

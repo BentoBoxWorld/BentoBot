@@ -16,7 +16,7 @@ module.exports = {
 
         [File an issue](https://github.com/BentoBoxWorld/${project}/issues/new/choose) • [Open the issue tracker](https://github.com/BentoBoxWorld/${project}/issues)`
   		});
-  		message.channel.send({ embed: CreatedEmbed })
+  		message.channel.send({ embeds: [CreatedEmbed] })
     }
 	},
 };

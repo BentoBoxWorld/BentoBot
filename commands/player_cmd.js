@@ -19,6 +19,6 @@ module.exports = {
       **CaveBlock**: /cave • /cb
       **AOneBlock**: /oneblock • /ob`
 		});
-		message.channel.send({ embed: CreatedEmbed })
+		message.channel.send({ embeds: [CreatedEmbed] })
 	},
 };

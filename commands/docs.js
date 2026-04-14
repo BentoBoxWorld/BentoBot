@@ -9,6 +9,6 @@ module.exports = {
 				"title": "Documentation",
 				"description": "Our documentation is available at [docs.bentobox.world](https://docs.bentobox.world)."
 		});
-		message.channel.send({ embed: CreatedEmbed })
+		message.channel.send({ embeds: [CreatedEmbed] })
 	}
 };

@@ -1,6 +1,6 @@
 const Embeds = require('../embed.js');
-const discord = require('discord.js');
-const aliases = require('../aliases.js')
+const { EmbedBuilder } = require('discord.js');
+const aliases = require('../aliases.js');
 
 module.exports = {
 	name: 'github',
@@ -11,18 +11,16 @@ module.exports = {
 	cooldown: 5,
 	execute(message, args) {
 		if (args.length == 1) {
-      let project = aliases.find_project_for_alias(args[0]);
-      if (!project) {
-	      let project = args[0];
-      };
-			const embed = new discord.MessageEmbed()
-			embed.setTitle(`${project} GitHub repository`);
-			embed.setDescription(`[Click here to go to the ${project} repository](https://github.com/BentoBoxWorld/${project}).`);
-			embed.addFields(
-				{ name: `Additional links`, value: `[Issue tracker](https://github.com/BentoBoxWorld/${project}/issues) • [Releases](https://github.com/BentoBoxWorld/${project}/releases) • [Contributors](https://github.com/BentoBoxWorld/${project}/graphs/contributors)` }
-			);
+			const project = aliases.find_project_for_alias(args[0]);
+			const embed = new EmbedBuilder()
+				.setTitle(`${project} GitHub repository`)
+				.setDescription(`[Click here to go to the ${project} repository](https://github.com/BentoBoxWorld/${project}).`)
+				.addFields({
+					name: 'Additional links',
+					value: `[Issue tracker](https://github.com/BentoBoxWorld/${project}/issues) • [Releases](https://github.com/BentoBoxWorld/${project}/releases) • [Contributors](https://github.com/BentoBoxWorld/${project}/graphs/contributors)`
+				});
 			const CreatedEmbed = Embeds.EmbedGen(embed);
-		  message.channel.send({ embed: CreatedEmbed })
+			message.channel.send({ embeds: [CreatedEmbed] });
 		}
 	},
 };

@@ -9,6 +9,6 @@ module.exports = {
 			"title": "Avoid tagging developers",
 			"description": "Please refrain from tagging online developers or contributors. Your messages will be answered as soon as possible, just wait."
 		});
-		message.channel.send({ embed: CreatedEmbed })
+		message.channel.send({ embeds: [CreatedEmbed] })
 	},
 };
