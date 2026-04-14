@@ -10,7 +10,7 @@ module.exports = {
 		const embed = new EmbedBuilder()
 			.setTitle("BentoBot")
 			.setDescription("BentoBot is your automated companion for everything BentoBoxWorld here.")
-			.addFields({ name: 'Authors', value: '<@547890787682222081> • <@188951050634395649>' });
+			.addFields({ name: 'Authors', value: '<@272498407971487744> • Fredthedoggy' });
 		const CreatedEmbed = Embeds.EmbedGen(embed);
 		message.channel.send({ embeds: [CreatedEmbed] });
 	}

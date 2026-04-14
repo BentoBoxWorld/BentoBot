@@ -17,7 +17,9 @@ module.exports = {
       **AcidIsland**: /acid
       **SkyGrid**: /sgadmin • /sga
       **CaveBlock**: /cbadmin • /cba
-      **AOneBlock**: /oneblockadmin • /obadmin • /oba`
+      **AOneBlock**: /oneblockadmin • /obadmin • /oba
+
+      **Tip:** Run \`/[admin_cmd] why <player>\` to instantly diagnose why a player can't break/place/interact on an island. It's the fastest debugging tool available.`
 		});
 		message.channel.send({ embeds: [CreatedEmbed] })
 	},

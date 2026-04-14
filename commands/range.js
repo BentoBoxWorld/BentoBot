@@ -1,22 +1,24 @@
-
 const Embeds = require('../embed.js');
 
 module.exports = {
 	name: 'range',
-	description: 'displays information about [range]',
+	description: 'displays information about island protection ranges',
 	permission: 'EVERYONE',
 	cooldown: 2,
 	execute(message) {
-    const CreatedEmbed = Embeds.EmbedGen({
-			"title": "[range]",
-			"description": `All new islands starts with default protection range that is defined in [gamemode] config protection-range.
-        Island protection area can be increased with command:
-        **/[admin_cmd] range set|add <player> <number>**
-        Or with permission:
-        **[gamemode].island.range.<number>**
-        Command works instantly, permission requires player to relog the server.
-        The max available value is defined by distance-between-islands from [gamemode] config. However, that value cannot be increased without full reset of all islands.`
+		const CreatedEmbed = Embeds.EmbedGen({
+			"title": "Island Protection Range",
+			"description": `Every island has a protection range that defines how far from the island centre the owner can build and block visitors. The range can grow up to the gamemode's \`distance-between-islands\` value.
+
+**Expanding a player's range:**
+• **Admin command (instant):** \`/[admin_cmd] range set <player> <number>\`
+• **Permission (applies on relog):** \`[gamemode].island.range.<number>\` granted to the island owner
+• **Boxed only:** range grows automatically with vanilla advancements (or use \`ignore-advancements: true\` to switch to commands/permissions)
+
+**Note:** the protection range can never exceed \`distance-between-islands\`, and that setting itself cannot be changed after islands have been created.
+
+[More info →](https://docs.bentobox.world/en/latest/BentoBox/Island-Protection,-Flags-&-Ranks/)`
 		});
-		message.channel.send({ embeds: [CreatedEmbed] })
+		message.channel.send({ embeds: [CreatedEmbed] });
 	},
 };
